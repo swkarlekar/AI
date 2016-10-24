@@ -1,0 +1,9 @@
+#GG is the only case which would produce two gold coins
+from random import choice
+options = [0, 1/2, 1]
+for n in range(10000):
+	count = 0
+	for r in range(n): 
+		if(choice(options) != 0):
+			count += 1
+print(count/10000, %)

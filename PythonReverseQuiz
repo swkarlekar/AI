@@ -1,0 +1,11 @@
+def reverseLst(Lst):
+	return null
+def main():
+#---Method 1. Use the built-in reverse function.
+	Lst1 = [1, 2, 3, 4, 5]
+	Lst2 = Lst1.reverse()
+	print('Method 1.', Lst1, Lst2) # Output: Method 1. [1, 2, 3, 4, 5] [5, 4, 3, 2, 1]
+#------------------------------------------------------------------------------------------------------------------------
+#---Method 2. Use the built-in reversed function.
+	
+main()

@@ -1,0 +1,58 @@
+##########################
+# Sweta Karlekar         #
+# Period 4               #
+# Letter-Shift Function  #
+##########################
+
+def main():
+	str = input("Enter word: ")
+	shift = int(input("Enter shift: "))
+	print("Text shifted to right: ", end = "")
+	tempRight = shiftTextRight(str, shift)
+	print(tempRight)
+	print("Shifted back to the left: ", end = "")
+	print(shiftTextLeft(tempRight, shift))
+	print("Text shifted to left: ", end = "")
+	tempLeft = shiftTextLeft(str, shift)
+	print(tempLeft)
+	print("Shifted back to the right: ", end = "")
+	print(shiftTextRight(tempLeft, shift))
+
+
+def shiftTextRight(str, shift):
+	characters = list(str)
+	for n in range(len(characters)):
+		magnitude = ord(characters[n])
+		if ord('A')<=(ord(characters[n]))<=ord('Z'): 
+			magnitude = ((ord(characters[n])+shift)-ord('A'))%26 + ord('A')
+		if ord('a')<=(ord(characters[n]))<=ord('z'):
+			magnitude = ((ord(characters[n])+shift)-ord('a'))%26 + ord('a')
+		characters[n] = chr(magnitude)
+	output = "".join(characters)
+	return output
+
+def shiftTextLeft(str, shift):
+	characters = list(str)
+	for n in range(len(characters)):
+		magnitude = ord(characters[n])
+		if ord('A')<=(ord(characters[n]))<=ord('Z'): 
+			magnitude = ((ord(characters[n])-shift)-ord('A'))%26 + ord('A')
+		if ord('a')<=(ord(characters[n]))<=ord('z'):
+			magnitude = ((ord(characters[n])-shift)-ord('a'))%26 + ord('a')
+		characters[n] = chr(magnitude)
+	output = "".join(characters)
+	return output
+
+if __name__ == '__main__': 
+	from time import clock; START_TIME = clock();main();
+	print (' | %5.2f seconds |' %(clock()-START_TIME))
+
+############# --------  OUTPUT ----------- #################
+# Enter word: Cheer!                                       #
+# Enter shift: 7                                           #
+# Text shifted to right: Jolly!                            #
+# Shifted back to the left: Cheer!                         #
+# Text shifted to left: Vaxxk!                             #
+# Shifted back to the right: Cheer!                        #
+#  |  0.00 seconds |									   #
+############################################################
